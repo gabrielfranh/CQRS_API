@@ -1,0 +1,19 @@
+services:
+  cleanarch.api:
+    image: ${DOCKER_REGISTRY-}cleanarchapi
+    build:
+      context: .
+      dockerfile: CleanArch.API/Dockerfile
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: testCleanArch123@
+      POSTGRES_USER: testCleanArch
+      POSTGRES_DB: MembersDb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
