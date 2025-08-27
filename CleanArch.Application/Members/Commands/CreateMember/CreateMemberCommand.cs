@@ -1,5 +1,4 @@
-﻿using CleanArch.Domain.Entities;
-using MediatR;
+﻿using MediatR;
 
 namespace CleanArch.Application.Members.Commands.CreateMember
 {

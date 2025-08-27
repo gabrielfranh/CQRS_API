@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using CleanArch.Application.Validators;
 using CleanArch.Domain.Abstractions;
 using CleanArch.Domain.Entities;
 using FluentValidation;

@@ -1,6 +1,7 @@
 using CleanArch.Application.Members.Commands.CreateMember;
 using CleanArch.Application.Members.Commands.DeleteMember;
 using CleanArch.Application.Members.Commands.UpdateMember;
+using CleanArch.Application.Members.Queries.GetMembers;
 using CleanArch.Domain.Abstractions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -15,9 +16,9 @@ namespace CleanArch.API.Controllers
         private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
         [HttpGet]
-        public async Task<IActionResult> Get(CancellationToken cancellationToken)
+        public async Task<IActionResult> Get(GetMembersQuery query)
         {
-            var members = await _unitOfWork.MemberRepository.Get(cancellationToken);
+            var members = await _mediator.Send(query);
             return Ok(members);
         }
 
